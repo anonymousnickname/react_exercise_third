@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {ApolloClient, InMemoryCache, gql, useQuery} from "@apollo/client";
 
 import CountrySearch from "./CountrySearch";
+import Input from "./Input";
 import "../app.css";
 
 const client = new ApolloClient({
@@ -50,11 +51,11 @@ const Country = () => {
     return (
         <div className="flex">
             <div>
-                <input
-                    placeholder="Enter Country Code"
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    type="text"
-                    value={inputCode}
+                <Input
+                    inputCode={inputCode}
+                    onInput={setCountryCode}
+                    label="Country"
+                    placeholder="Entry Country Code"
                 />
                 {country ? (
                     <CountrySearch key={country.code} country={country} />
@@ -63,11 +64,11 @@ const Country = () => {
                 )}
             </div>
             <div>
-                <input
-                    placeholder="Enter Continent Code"
-                    onChange={(e) => setContinentCode(e.target.value)}
-                    type="text"
-                    value={inputContinent}
+                <Input
+                    inputCode={inputContinent}
+                    onInput={setContinentCode}
+                    label="Continent"
+                    placeholder="Entry Continent Code"
                 />
                 {inputContinent ? (
                     <>
@@ -89,7 +90,7 @@ const Country = () => {
                         </div>
                     </>
                 ) : (
-                    <p>Please input continent</p>
+                    <p>Please input continent code</p>
                 )}
             </div>
         </div>

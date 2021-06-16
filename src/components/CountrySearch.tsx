@@ -49,4 +49,6 @@ const CountrySearch = ({country, isContinent = false}: CountrySearchProps) => {
     );
 };
 
-export default CountrySearch;
+const MemoizedCountrySearch = React.memo(CountrySearch);
+
+export default MemoizedCountrySearch;

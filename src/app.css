@@ -27,6 +27,11 @@ input {
     transition: 0.3s;
 }
 
+.countryRow span {
+    color: rgb(245, 48, 48);
+    font-weight: bold;
+}
+
 .countryRow:hover {
     color: #fff;
     background-color: #000;

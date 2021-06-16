@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {ApolloClient, InMemoryCache, gql, useQuery} from "@apollo/client";
 
+import CountrySearch from "./CountrySearch";
 import "../app.css";
 
 const client = new ApolloClient({
@@ -56,22 +57,7 @@ const Country = () => {
                     value={inputCode}
                 />
                 {country ? (
-                    <div key={country.code}>
-                        <p className="countryRow" style={{marginTop: "10px"}}>
-                            Name: {country.name}
-                        </p>
-                        <p className="countryRow">Code: {country.code}</p>
-                        <p className="countryRow">Currency: {country.currency}</p>
-                        <p className="countryRow">
-                            Flag: <span>{country.emoji}</span>
-                        </p>
-                        <p className="countryRow">
-                            Languages:
-                            {country.languages.map((language) => (
-                                <span key={language.name}> {language.name}</span>
-                            ))}
-                        </p>
-                    </div>
+                    <CountrySearch key={country.code} country={country} />
                 ) : (
                     <p>Please input country code</p>
                 )}
@@ -93,10 +79,11 @@ const Country = () => {
                                 )
                                 .map((continent) =>
                                     continent.countries.map((country) => (
-                                        <div key={country.code} className="countryRow">
-                                            <span>{country.emoji}</span>
-                                            <span>{country.name}</span>
-                                        </div>
+                                        <CountrySearch
+                                            key={country.code}
+                                            country={country}
+                                            isContinent={true}
+                                        />
                                     ))
                                 )}
                         </div>

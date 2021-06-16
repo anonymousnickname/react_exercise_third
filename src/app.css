@@ -24,6 +24,7 @@ input {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    transition: 0.3s;
 }
 
 .countryRow:hover {
@@ -42,6 +43,8 @@ input {
     width: 60%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .continent {

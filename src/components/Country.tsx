@@ -31,8 +31,8 @@ const LIST_COUNTRIES = gql`
 `;
 
 const Country = () => {
-    const [inputContinent, setContinentCode] = useState("");
-    const [inputCode, setCountryCode] = useState("");
+    const [inputContinent, setContinentCode] = useState<string>("");
+    const [inputCode, setCountryCode] = useState<string>("");
     const {data, loading, error} = useQuery(LIST_COUNTRIES, {client});
 
     if (loading || error) {
@@ -57,13 +57,15 @@ const Country = () => {
                 />
                 {country ? (
                     <div key={country.code}>
-                        <p>Name: {country.name}</p>
-                        <p>Code: {country.code}</p>
-                        <p>Currency: {country.currency}</p>
-                        <p>
+                        <p className="countryRow" style={{marginTop: "10px"}}>
+                            Name: {country.name}
+                        </p>
+                        <p className="countryRow">Code: {country.code}</p>
+                        <p className="countryRow">Currency: {country.currency}</p>
+                        <p className="countryRow">
                             Flag: <span>{country.emoji}</span>
                         </p>
-                        <p>
+                        <p className="countryRow">
                             Languages:
                             {country.languages.map((language) => (
                                 <span key={language.name}> {language.name}</span>
@@ -71,7 +73,7 @@ const Country = () => {
                         </p>
                     </div>
                 ) : (
-                    <p>Please input coutry code</p>
+                    <p>Please input country code</p>
                 )}
             </div>
             <div>

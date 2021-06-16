@@ -1,0 +1,71 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+input {
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    width: 300px;
+}
+
+.countryRow {
+    min-width: 100px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.countryRow:hover {
+    color: #fff;
+    background-color: #000;
+}
+.countryRow:first-child {
+    margin-top: 0px;
+}
+.scroll {
+    overflow-y: scroll;
+}
+
+.flex {
+    margin: 0 auto;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.continent {
+    max-height: 500px;
+    overflow-y: auto;
+    width: 350px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
